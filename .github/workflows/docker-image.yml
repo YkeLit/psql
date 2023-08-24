@@ -1,0 +1,24 @@
+name: Release Docker image for the app
+
+on:
+  pull_request:
+  push:
+    tags:
+      - "v*.*.*"
+  release:
+    types: [published]
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build and push
+      uses: byzanteam/jet-actions/fe-build-image@main
+      with:
+        registries: |-
+          docker.io,ykke,ykke,${{ secrets.DOCKER_KEY }}
+          ghcr.io,ykelit,${{ github.repository_owner }},${{ github.token }}
+        dockerfile: ./Dockerfile
