@@ -1,5 +1,5 @@
-FROM alpine:3.18
+FROM alpine:3.19
 
 MAINTAINER YkeLit
 
-RUN apk add --no-cache postgresql14-client~14
+RUN apk add --no-cache postgresql16-client~16
