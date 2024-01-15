@@ -20,5 +20,4 @@ jobs:
       with:
         registries: |-
           docker.io,ykke,ykke,${{ secrets.DOCKER_KEY }}
-          ghcr.io,ykelit,${{ github.repository_owner }},${{ github.token }}
         dockerfile: ./Dockerfile
